@@ -9,10 +9,38 @@ public class StackMain {
 		testCustomStackWithLinkedL();
 		System.out.println("TwoStackWithArrayLE");
 		testTwoStackWithArrayLE();
+		System.out.println("TwoStackWithArrayEfficient");
+		testTwoStackWithArrayEfficient();
+	}
+	
+	public static void testTwoStackWithArrayEfficient() {
+		TwoStackWithArrayEfficient stack = new TwoStackWithArrayEfficient(10);
+		System.out.println(stack.isEmptyStack1());
+		stack.push1(1);
+		stack.push1(2);
+		stack.push1(3);
+		stack.push1(4);
+		stack.push1(5);
+
+		stack.push2(10);
+		stack.push2(20);
+		stack.push2(30);
+		stack.push2(40);
+		stack.push2(50);
+
+		System.out.println(stack);
+		System.out.println("E : " + stack.pop1());
+		System.out.println(stack.push1(6));
+		System.out.println(stack.isEmptyStack1());
+
+		System.out.println("E : " + stack.pop2());
+		System.out.println(stack.push2(60));
+		System.out.println(stack);
+		System.out.println(stack.isEmptyStack2());
 	}
 
 	public static void testTwoStackWithArrayLE() {
-		TwoStackWithArrayLE stack = new TwoStackWithArrayLE();
+		TwoStackWithArrayLE stack = new TwoStackWithArrayLE(10);
 		System.out.println(stack.pop1());
 		stack.push1(1);
 		stack.push1(2);

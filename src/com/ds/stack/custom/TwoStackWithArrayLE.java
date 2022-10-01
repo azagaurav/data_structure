@@ -2,13 +2,19 @@ package com.ds.stack.custom;
 
 public class TwoStackWithArrayLE {
 
-	int[] array = new int[10];
-	int MAX_SIZE1 = 10 / 2;
-	int top1 = 0;
-	int top2 = 5;
+	int[] array;
+	int top1;
+	int top2;
+	int size;
+	public TwoStackWithArrayLE(int n){
+		array = new int[n];
+		top1 = 0;
+		top2 = n/2;
+		size = n;
+	}
 
 	public boolean push1(int a) {
-		if (top1 == 5) {
+		if (top1 == size/2) {
 			System.out.println("Stack is Overflow");
 			return false;
 		} else {
@@ -19,7 +25,7 @@ public class TwoStackWithArrayLE {
 	}
 
 	public boolean push2(int a) {
-		if (top2 == 10) {
+		if (top2 == size) {
 			System.out.println("Stack is Overflow");
 			return false;
 		} else {
@@ -30,44 +36,46 @@ public class TwoStackWithArrayLE {
 	}
 
 	public int pop1() {
-		if (top1 <= 0) {
-			System.out.println("Stack is Underflow");
-			return -1;
-		} else {
+		if (top1 > 0) {
 			int x = array[top1 - 1];
+			array[top1 - 1]=0;
 			top1--;
 			return x;
+		} else {
+			System.out.println("Stack is Underflow");
+			return -1;
 		}
 	}
 
 	public int pop2() {
-		if (top2 <= 5) {
-			System.out.println("Stack is underflow");
-			return -1;
-		} else {
+		if (top2 >size/2) {
 			int x = array[top2 - 1];
+			array[top2 - 1]=0;
 			top2--;
 			return x;
+		} else {
+			System.out.println("Stack is underflow");
+			return -1;
 		}
 	}
 
 	public int peek1() {
-		if (top1 <= 0) {
-			System.out.println("Stack is Underflow");
-			return -1;
-		} else {
+		if (top1 > 0) {
 			int x = array[top1 - 1];
 			return x;
+		} else {
+			System.out.println("Stack is Underflow");
+			return -1;
 		}
 	}
 
 	public int peek2() {
-		if (top2 <= 5) {
-			System.out.println("Stack is underflow");
-			return -1;
-		} else {
+		if (top2 > size/2) {
 			int x = array[top2 - 1];
 			return x;
+		} else {
+			System.out.println("Stack is underflow");
+			return -1;
 		}
 	}
 
